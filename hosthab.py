@@ -68,7 +68,7 @@ def connect(sock, addr):
 
                     elif method == "Answer":
                             userbd.update_user(**param)
-                            bot.send_message(param['idT'], "У вас на счету " + str(param['score']) + "рублей")
+                            bot.send_message(param['idT'], "У вас на счету " + str(param['score']) + " рублей")
 
                     elif method == "error":
                             bot.send_message(param['idT'], "В ходе работы произошла ошибка, пожалуйста попробуйте еще разок, ладненько?")
@@ -108,6 +108,8 @@ def connect(sock, addr):
     except ConnectionResetError:
         # tableSock.pop({date['param']['idv']: sock})
         print("Disconnect: ", addr)
+    except json.JSONDecodeError:
+        pass
 
 
 
