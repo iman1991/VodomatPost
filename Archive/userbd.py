@@ -24,3 +24,12 @@ def update_user(**kwargs):
     connection.commit()
     cursor.close()
     connection.close()
+
+def get_user(idT): # Get a Vodomat with its idv
+    connection = connect()
+    cursor = connection.cursor()
+    cursor.execute("SELECT * FROM users WHERE idT = %i" % (idT))
+    results = cursor.fetchone()
+    cursor.close()
+    connection.close()
+    return results

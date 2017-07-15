@@ -67,6 +67,9 @@ def connect(sock, addr):
                                 sock.send(j.encode("utf-8"))
 
                     elif method == "Answer":
+                            getBd=userbd.get_user(param['idT'])
+                            getscore = int(getBd['score']) - int(param['score'])
+                            hostbd.update_vodomatScore(param['idv'],getscore)
                             userbd.update_user(**param)
                             bot.send_message(param['idT'], "У вас на счету " + str(param['score']) + " рублей")
 

@@ -62,7 +62,14 @@ def update_vodomat(**param):
     connection.close()
     return True
 
-
+def update_vodomatScore(idv, score): # Get a Vodomat with its idv
+    connection = connect()
+    cursor = connection.cursor()
+    first = "UPDATE vs SET Score = %i WHERE idv = %i"
+    second = (score, idv)
+    cursor.execute(first, second)
+    cursor.close()
+    connection.close()
 
 # DELETE VODOMAT
 def delete_vodomat(idv):
