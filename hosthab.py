@@ -75,10 +75,10 @@ def connect(sock, addr):
                             print(getscore)
                             hostbd.update_vodomatScore(param['idv'],getscore)
                             userbd.update_user(**param)
-                            bot.send_message(param['idT'], "У вас на счету " + str(param['score']) + " рублей")
+                            bot.send_message(param['idT'], "У вас на счету " + str(param['score']) + "₽")
 
                     elif method == "AnswerUP":
-                            bot.send_message(param['idT'], "У вас на счету " + str(param['score']) + " рублей")
+                            bot.send_message(param['idT'], "У вас на счету " + str(param['score']) + "₽")
                             userbd.update_user(**param)
 
                     elif method == "error":
