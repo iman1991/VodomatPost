@@ -53,7 +53,7 @@ def update_vodomat(**param):
     cursor = connection.cursor()
 
     divv = param['idv']
-    first = " UPDATE vs SET state = %s, input10Counter = %s, out10Counter = %s, milLitlose = %s, milLitWentOut = %s, milLitContIn = %s, waterPrice = %s, waterContThreshold = %s, contVolume = %s, totalPaid = %s, sessionPaid = %s, leftFromPaid = %s, container = %s, currentContainerVolume = %s, consumerPump = %s, mainPump = %s, magistralPressure = %s, mainValve = %s, filterValve = %s, washFilValve = %s, tumperMoney = %s, tumperDoor = %s, serviceButton = %s, freeButton = %s, Voltage = %s WHERE idv = %s "
+    first = "UPDATE vs SET state = %s, input10Counter = %s, out10Counter = %s, milLitlose = %s, milLitWentOut = %s, milLitContIn = %s, waterPrice = %s, waterContThreshold = %s, contVolume = %s, totalPaid = %s, sessionPaid = %s, leftFromPaid = %s, container = %s, currentContainerVolume = %s, consumerPump = %s, mainPump = %s, magistralPressure = %s, mainValve = %s, filterValve = %s, washFilValve = %s, tumperMoney = %s, tumperDoor = %s, serviceButton = %s, freeButton = %s, Voltage = %s WHERE idv = %s "
     second = (param.get('state'), param.get('input10Counter'),param.get('out10Counter'),param.get('milLitlose'),param.get('milLitWentOut'),param.get('milLitContIn'),param.get('waterPrice'),param.get('waterContThreshold'),param.get('contVolume'),param.get('totalPaid'),param.get('sessionPaid'),param.get('leftFromPaid'),param.get('container'),param.get('currentContainerVolume'),param.get('consumerPump'),param.get('mainPump'),param.get('magistralPressure'),param.get('mainValve'),param.get('filterValve'),param.get('washFilValve'),param.get('tumperMoney'),param.get('tumperDoor'),param.get('serviceButton'),param.get('freeButton'),param.get('Voltage'), divv)
     cursor.execute(first, second)
 
@@ -65,7 +65,12 @@ def update_vodomat(**param):
 def update_vodomatScore(idv, score): # Get a Vodomat with its idv
     connection = connect()
     cursor = connection.cursor()
-    first = "UPDATE vs SET Score = %s WHERE idv = %s"
+    print("into hostbd where been upvodscore:")
+    print("idv:")
+    print(idv)
+    print("score:")
+    print(score)
+    first = "UPDATE vs SET score = %s WHERE idv = %s"
     second = (score, idv)
     cursor.execute(first, second)
     cursor.close()

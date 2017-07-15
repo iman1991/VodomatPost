@@ -68,14 +68,18 @@ def connect(sock, addr):
 
                     elif method == "AnswerPay":
                             getBd=userbd.get_user(param['idT'])
+                            print("getBd:")
+                            print(getBd)
                             getscore = int(getBd['score']) - int(param['score'])
+                            print("getscore:")
+                            print(getscore)
                             hostbd.update_vodomatScore(param['idv'],getscore)
                             userbd.update_user(**param)
                             bot.send_message(param['idT'], "У вас на счету " + str(param['score']) + " рублей")
 
                     elif method == "AnswerUP":
-                            userbd.update_user(**param)
                             bot.send_message(param['idT'], "У вас на счету " + str(param['score']) + " рублей")
+                            userbd.update_user(**param)
 
                     elif method == "error":
                             bot.send_message(param['idT'], "В ходе работы произошла ошибка, пожалуйста попробуйте еще разок, ладненько?")
