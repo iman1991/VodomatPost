@@ -65,7 +65,7 @@ def update_vodomat(**param):
 def update_vodomatScore(idv, score): # Get a Vodomat with its idv
     connection = connect()
     cursor = connection.cursor()
-    first = "UPDATE vs SET Score = %i WHERE idv = %i"
+    first = "UPDATE vs SET Score = %s WHERE idv = %s"
     second = (score, idv)
     cursor.execute(first, second)
     cursor.close()
