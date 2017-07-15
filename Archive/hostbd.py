@@ -73,8 +73,10 @@ def update_vodomatScore(idv, score): # Get a Vodomat with its idv
     first = "UPDATE vs SET score = %s WHERE idv = %s"
     second = (score, idv)
     cursor.execute(first, second)
+    connection.commit()
     cursor.close()
     connection.close()
+
 
 # DELETE VODOMAT
 def delete_vodomat(idv):
