@@ -39,15 +39,21 @@ def connect(sock, addr):
 
                     if method == "GetWater":
                         print("PR")
+
                         hostWI = hostbd.get_vodomat(int(param['idv']))
+                        print("hostWI:")
+                        print(hostWI)
                         if hostWI is not None:
                             if hostWI['State'] == 'WAIT':
                                 print('begin to send to vodomat!')
-                                bot.send_message(param['idT'],
-                                                 "Спасибо за покупку воды, приятного питья!")
-
                                 j = json.dumps(date)
-                                tableSock[int(param["idv"])].send(j.encode("utf-8"))
+                                try:
+                                    tableSock[int(param['idv'])].send(j.encode("utf-8"))
+                                    bot.send_message(param['idT'],
+                                                     "Спасибо за покупку воды, приятного питья!")
+                                except:
+                                    bot.send_message(param['idT'],
+                                                     "Приносим вам свои извинения, но водомат в не рабочем состоянии!")
                             else:
                                 print("PRE")
                                 bot.send_message(param['idT'], "Приносим вам свои извинения, но водомат в не рабочем состоянии!")
@@ -58,14 +64,16 @@ def connect(sock, addr):
 
                     elif method == "ToUpBalance":
                             hostWI = hostbd.get_vodomat(param['idv'])
+
                             if hostWI is not None:
                                 if hostWI['State'] == 'WAIT':
-                                    bot.send_message(param['idT'],
-                                                     "Спасибо за пополнения счета!")
+
                                     print('begin to send to vodomat!')
                                     j = json.dumps(date)
                                     try :
                                             tableSock[int(param['idv'])].send(j.encode("utf-8"))
+                                            bot.send_message(param['idT'],
+                                                             "Спасибо за пополнения счета!")
                                     except:
                                             bot.send_message(param['idT'],
                                                          "Приносим вам свои извинения, но водомат в не рабочем состоянии!")
