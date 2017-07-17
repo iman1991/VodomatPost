@@ -38,8 +38,9 @@ def connect(sock, addr):
                     param = date.get("param")
 
                     if method == "GetWater":
-                            print("PR")
-                            hostWI = hostbd.get_vodomat(int(param['idv']))
+                        print("PR")
+                        hostWI = hostbd.get_vodomat(int(param['idv']))
+                        if hostWI is not None:
                             if hostWI['State'] == 'WAIT':
                                 print('begin to send to vodomat!')
                                 bot.send_message(param['idT'],
@@ -50,24 +51,32 @@ def connect(sock, addr):
                             else:
                                 print("PRE")
                                 bot.send_message(param['idT'], "Приносим вам свои извинения, но водомат в не рабочем состоянии!")
+                        else:
+                            bot.send_message(param['idT'],
+                                             "Вы ввели неправильный ID водомата!")
+
 
                     elif method == "ToUpBalance":
                             hostWI = hostbd.get_vodomat(param['idv'])
-                            if hostWI['State'] == 'WAIT':
-                                bot.send_message(param['idT'],
-                                                 "Спасибо за пополнения счета!")
-                                print('begin to send to vodomat!')
-                                j = json.dumps(date)
-                                try :
-                                        tableSock[int(param['idv'])].send(j.encode("utf-8"))
-                                except:
-                                        bot.send_message(param['idT'],
-                                                     "Приносим вам свои извинения, но водомат в не рабочем состоянии!")
+                            if hostWI is not None:
+                                if hostWI['State'] == 'WAIT':
+                                    bot.send_message(param['idT'],
+                                                     "Спасибо за пополнения счета!")
+                                    print('begin to send to vodomat!')
+                                    j = json.dumps(date)
+                                    try :
+                                            tableSock[int(param['idv'])].send(j.encode("utf-8"))
+                                    except:
+                                            bot.send_message(param['idT'],
+                                                         "Приносим вам свои извинения, но водомат в не рабочем состоянии!")
+                                else:
+                                    bot.send_message(param['idT'], "Приносим вам свои извинения, но водомат в не рабочем состоянии!")
+                                    ypar = {'method': 'error', 'param': 'prombples with vodomat'}
+                                    j = json.dumps(ypar)
+                                    sock.send(j.encode("utf-8"))
                             else:
-                                bot.send_message(param['idT'], "Приносим вам свои извинения, но водомат в не рабочем состоянии!")
-                                ypar = {'method': 'error', 'param': 'prombples with vodomat'}
-                                j = json.dumps(ypar)
-                                sock.send(j.encode("utf-8"))
+                                bot.send_message(param['idT'],
+                                                 "Вы ввели неправильный ID водомата!")
 
                     elif method == "AnswerPay":
                             getBd=userbd.get_user(param['idT'])
