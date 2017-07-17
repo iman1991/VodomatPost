@@ -5,7 +5,6 @@ import telebot
 
 token = "321273335:AAGC0-DP7Rwxu99_sN3sSVdYDOcPgu3869g"
 
-
 bot = telebot.TeleBot(token=token)
 
 
@@ -17,7 +16,7 @@ tableSock = {}
 
 def connect(sock, addr):
     test = {}
-
+    date={}
     try:
         while True:
             data = sock.recv(2048)
@@ -59,7 +58,11 @@ def connect(sock, addr):
                                                  "Спасибо за пополнения счета!")
                                 print('begin to send to vodomat!')
                                 j = json.dumps(date)
-                                tableSock[int(param['idv'])].send(j.encode("utf-8"))
+                                try :
+                                        tableSock[int(param['idv'])].send(j.encode("utf-8"))
+                                except:
+                                        bot.send_message(param['idT'],
+                                                     "Приносим вам свои извинения, но водомат в не рабочем состоянии!")
                             else:
                                 bot.send_message(param['idT'], "Приносим вам свои извинения, но водомат в не рабочем состоянии!")
                                 ypar = {'method': 'error', 'param': 'prombples with vodomat'}
@@ -117,12 +120,10 @@ def connect(sock, addr):
                     sock.send(j.encode("utf-8"))
 
     except ConnectionResetError:
-        # tableSock.pop({date['param']['idv']: sock})
+        tableSock.pop({date['param']['idv']: sock})
         print("Disconnect: ", addr)
     except json.JSONDecodeError:
         pass
-
-
 
 def habStart():
     sock = socket.socket()
