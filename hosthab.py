@@ -14,6 +14,15 @@ from Archive import userbd
 
 tableSock = {}
 
+def send(sock, data):
+    if type(data) == str:
+        data = data.encode("utf-8")
+    elif type(data) == dict:
+        data = json.dumps(data).encode("utf-8")
+    sock.send(data)
+
+
+
 def connect(sock, addr):
     test = {}
     date={}
@@ -97,36 +106,29 @@ def connect(sock, addr):
                             bot.send_message(param['idT'], "В ходе работы произошла ошибка, пожалуйста попробуйте еще разок, ладненько?")
 
                     elif method == "status":  # for get information about hosts
-                            prev=hostbd.get_vodomat(param['idv'])
-                            if date == prev:
-                                ypar = {'method': 'got','param': 'saved'}
-                                j = json.dumps(ypar)
-                                sock.send(j.encode("utf-8"))
-                            else:
+                            prev = hostbd.get_vodomat(param['idv'])
+                            ypar = {'method': 'got', 'param': 'saved'}
+                            send(sock, ypar)
+                            if date != prev:
                                 hostbd.update_vodomat(**param)
                                 workbyfile.write_on_file(date)
                                 print("Savedate = %s" % date)
-                                ypar = {'method': 'got', 'param': 'saved'}
-                                j = json.dumps(ypar)
-                                sock.send(j.encode("utf-8"))
 
                     elif method == "connect":
                             hostbd.add_host(param['idv'])
                             hostbd.update_vodomat(**param)
                             tableSock.update({date['param']['idv']: sock})
                             workbyfile.write_on_file(date)
-                            ypar = {'method': 'got','param': 'saved'}
-                            j = json.dumps(ypar)
-                            sock.send(j.encode("utf-8"))
+                            ypar = {'method': 'got', 'param': 'saved'}
+                            send(sock, ypar)
                     else:
-                        ypar = {'method': 'error', 'param': 'error'}
-                        j = json.dumps(ypar)
-                        sock.send(j.encode("utf-8"))
-                except  Exception as e:
+                        ypar = {"method": "error", "param": {"type": "not method", "args": method}}
+                        send(sock, ypar)
+
+                except Exception as e:
                     print(e)
-                    ypar = {'method': 'error', 'param': 'error'}
-                    j = json.dumps(ypar)
-                    sock.send(j.encode("utf-8"))
+                    ypar = {"method": "error", "param": {"type": "fatal error", "args": e.args}}
+                    send(sock, ypar)
 
     except ConnectionResetError:
         tableSock.pop({date['param']['idv']: sock})
