@@ -77,23 +77,21 @@ def connect(sock, addr):
                                             tableSock[int(param['idv'])].send(j.encode("utf-8"))
                                     except:
                                             bot.send_message(param['idT'],
-                                                         "Приносим вам свои извинения, но водомат в не рабочем состоянии!")
+                                                         "Приносим вам свои извинения,"
+                                                         "но водомат временно в не рабочем состоянии!")
                                 else:
-                                    bot.send_message(param['idT'], "Приносим вам свои извинения, но водомат в не рабочем состоянии!")
-                                    ypar = {'method': 'error', 'param': 'prombples with vodomat'}
-                                    j = json.dumps(ypar)
-                                    sock.send(j.encode("utf-8"))
+                                    bot.send_message(param['idT'], "Водома уже занят, попробуйте позже")
+                                    ypar = {"method": "error", "param": {"type": "vodomat",
+                                                                         "args": hostWI['State']}}
+                                    send(sock, ypar)
                             else:
-                                bot.send_message(param['idT'],
-                                                 "Вы ввели неправильный ID водомата!")
+                                bot.send_message(param['idT'], "Вы ввели неправильный ID водомата!")
 
                     elif method == "AnswerPay":
                             getBd=userbd.get_user(param['idT'])
-                            print("getBd:")
-                            print(getBd)
+                            print("getBd: %s" % getBd)
                             getscore = int(getBd['score']) - int(param['score'])
-                            print("getscore:")
-                            print(getscore)
+                            print("getscore: %s" % getscore)
                             hostbd.update_vodomatScore(param['idv'],getscore)
                             userbd.update_user(**param)
                             bot.send_message(param['idT'], "У вас на счету " + str(param['score']) + "₽")
