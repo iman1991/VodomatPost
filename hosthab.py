@@ -37,21 +37,6 @@ def connect(sock, addr):
             method = date.get("method")
             param = date.get("param")
 
-            # if method == "GetWater":
-            #     hostWI = hostbd.get_vodomat(int(param['idv']))
-            #     if hostWI is not None:
-            #         if hostWI['State'] == 'WAIT':
-            #             bot.send_message(param['idT'],
-            #                              "Спасибо за покупку воды, приятного питья!")
-            #
-            #             j = json.dumps(date)
-            #             tableSock[int(param["idv"])].send(j.encode("utf-8"))
-            #         else:
-            #             bot.send_message(param['idT'],
-            #                              "Приносим вам свои извинения, но водомат в не рабочем состоянии!")
-            #     else:
-            #         bot.send_message(param['idT'],
-            #                          "Вы ввели неправильный ID водомата!")
 
             if method == "Activate":
                 hostWI = hostbd.get_vodomat(int(param['idv']))
@@ -100,21 +85,7 @@ def connect(sock, addr):
                 all = ScoreVodomat + HowManyWereSpent - int(date2['param']['sessionpaid'])
                 hostbd.update_vodomatScore(param['idv'], all)
 
-                # getscore = date2['method']['param']['sessionpaid']
 
-                # getBd = userbd.get_user(param['idT'])
-                # print("getBd: %s" % getBd)
-                # getscore = int(getBd['score']) - int(param['score'])
-                # print("getscore: %s" % getscore)
-
-
-
-
-
-
-            # elif method == "AnswerUP":
-            #     bot.send_message(param['idT'], "У вас на счету " + str(param['score']) + "₽")
-            #     userbd.update_user(**param)
 
 
 
