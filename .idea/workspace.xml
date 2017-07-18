@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="66b37cd4-547a-4f87-8df1-3665b723944b" name="Default" comment="vodomat">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/VodomatPost.iml" afterPath="$PROJECT_DIR$/.idea/VodomatPost.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+    <list default="true" id="66b37cd4-547a-4f87-8df1-3665b723944b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hosthab.py" afterPath="$PROJECT_DIR$/hosthab.py" />
     </list>
@@ -23,18 +21,19 @@
       <file leaf-file-name="hosthab.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hosthab.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="82" column="41" lean-forward="false" selection-start-line="82" selection-start-column="41" selection-end-line="82" selection-end-column="41" />
+            <state relative-caret-position="320">
+              <caret line="90" column="50" lean-forward="true" selection-start-line="90" selection-start-column="50" selection-end-line="90" selection-end-column="50" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
                 <element signature="e#819#845#0" expanded="false" />
                 <element signature="e#1692#2202#0" expanded="false" />
                 <element signature="e#2273#2666#0" expanded="false" />
-                <element signature="e#3753#3781#0" expanded="false" />
-                <element signature="e#3979#4121#0" expanded="false" />
-                <element signature="e#4213#4529#0" expanded="false" />
-                <element signature="e#4586#4864#0" expanded="false" />
-                <element signature="e#4899#5007#0" expanded="false" />
+                <element signature="e#3745#3797#0" expanded="false" />
+                <element signature="e#4040#4068#0" expanded="false" />
+                <element signature="e#4266#4408#0" expanded="false" />
+                <element signature="e#4500#4816#0" expanded="false" />
+                <element signature="e#4873#5151#0" expanded="false" />
+                <element signature="e#5186#5294#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -396,7 +395,14 @@
       <option name="project" value="LOCAL" />
       <updated>1500300986713</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="vodomat">
+      <created>1500376059429</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1500376059429</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -465,22 +471,22 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/hosthab.py</url>
-          <line>113</line>
+          <line>120</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/hosthab.py</url>
-          <line>119</line>
+          <line>126</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/hosthab.py</url>
-          <line>129</line>
+          <line>136</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/hosthab.py</url>
-          <line>136</line>
+          <line>143</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -517,11 +523,12 @@
             <element signature="e#819#845#0" expanded="false" />
             <element signature="e#1692#2202#0" expanded="false" />
             <element signature="e#2273#2666#0" expanded="false" />
-            <element signature="e#3753#3781#0" expanded="false" />
-            <element signature="e#3979#4121#0" expanded="false" />
-            <element signature="e#4213#4529#0" expanded="false" />
-            <element signature="e#4586#4864#0" expanded="false" />
-            <element signature="e#4899#5007#0" expanded="false" />
+            <element signature="e#3745#3797#0" expanded="false" />
+            <element signature="e#4040#4068#0" expanded="false" />
+            <element signature="e#4266#4408#0" expanded="false" />
+            <element signature="e#4500#4816#0" expanded="false" />
+            <element signature="e#4873#5151#0" expanded="false" />
+            <element signature="e#5186#5294#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -556,11 +563,12 @@
             <element signature="e#819#845#0" expanded="false" />
             <element signature="e#1692#2202#0" expanded="false" />
             <element signature="e#2273#2666#0" expanded="false" />
-            <element signature="e#3753#3781#0" expanded="false" />
-            <element signature="e#3979#4121#0" expanded="false" />
-            <element signature="e#4213#4529#0" expanded="false" />
-            <element signature="e#4586#4864#0" expanded="false" />
-            <element signature="e#4899#5007#0" expanded="false" />
+            <element signature="e#3745#3797#0" expanded="false" />
+            <element signature="e#4040#4068#0" expanded="false" />
+            <element signature="e#4266#4408#0" expanded="false" />
+            <element signature="e#4500#4816#0" expanded="false" />
+            <element signature="e#4873#5151#0" expanded="false" />
+            <element signature="e#5186#5294#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -588,11 +596,12 @@
             <element signature="e#819#845#0" expanded="false" />
             <element signature="e#1692#2202#0" expanded="false" />
             <element signature="e#2273#2666#0" expanded="false" />
-            <element signature="e#3753#3781#0" expanded="false" />
-            <element signature="e#3979#4121#0" expanded="false" />
-            <element signature="e#4213#4529#0" expanded="false" />
-            <element signature="e#4586#4864#0" expanded="false" />
-            <element signature="e#4899#5007#0" expanded="false" />
+            <element signature="e#3745#3797#0" expanded="false" />
+            <element signature="e#4040#4068#0" expanded="false" />
+            <element signature="e#4266#4408#0" expanded="false" />
+            <element signature="e#4500#4816#0" expanded="false" />
+            <element signature="e#4873#5151#0" expanded="false" />
+            <element signature="e#5186#5294#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -620,11 +629,12 @@
             <element signature="e#819#845#0" expanded="false" />
             <element signature="e#1692#2202#0" expanded="false" />
             <element signature="e#2273#2666#0" expanded="false" />
-            <element signature="e#3753#3781#0" expanded="false" />
-            <element signature="e#3979#4121#0" expanded="false" />
-            <element signature="e#4213#4529#0" expanded="false" />
-            <element signature="e#4586#4864#0" expanded="false" />
-            <element signature="e#4899#5007#0" expanded="false" />
+            <element signature="e#3745#3797#0" expanded="false" />
+            <element signature="e#4040#4068#0" expanded="false" />
+            <element signature="e#4266#4408#0" expanded="false" />
+            <element signature="e#4500#4816#0" expanded="false" />
+            <element signature="e#4873#5151#0" expanded="false" />
+            <element signature="e#5186#5294#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -652,11 +662,12 @@
             <element signature="e#819#845#0" expanded="false" />
             <element signature="e#1692#2202#0" expanded="false" />
             <element signature="e#2273#2666#0" expanded="false" />
-            <element signature="e#3753#3781#0" expanded="false" />
-            <element signature="e#3979#4121#0" expanded="false" />
-            <element signature="e#4213#4529#0" expanded="false" />
-            <element signature="e#4586#4864#0" expanded="false" />
-            <element signature="e#4899#5007#0" expanded="false" />
+            <element signature="e#3745#3797#0" expanded="false" />
+            <element signature="e#4040#4068#0" expanded="false" />
+            <element signature="e#4266#4408#0" expanded="false" />
+            <element signature="e#4500#4816#0" expanded="false" />
+            <element signature="e#4873#5151#0" expanded="false" />
+            <element signature="e#5186#5294#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -684,11 +695,12 @@
             <element signature="e#819#845#0" expanded="false" />
             <element signature="e#1692#2202#0" expanded="false" />
             <element signature="e#2273#2666#0" expanded="false" />
-            <element signature="e#3753#3781#0" expanded="false" />
-            <element signature="e#3979#4121#0" expanded="false" />
-            <element signature="e#4213#4529#0" expanded="false" />
-            <element signature="e#4586#4864#0" expanded="false" />
-            <element signature="e#4899#5007#0" expanded="false" />
+            <element signature="e#3745#3797#0" expanded="false" />
+            <element signature="e#4040#4068#0" expanded="false" />
+            <element signature="e#4266#4408#0" expanded="false" />
+            <element signature="e#4500#4816#0" expanded="false" />
+            <element signature="e#4873#5151#0" expanded="false" />
+            <element signature="e#5186#5294#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -716,11 +728,12 @@
             <element signature="e#819#845#0" expanded="false" />
             <element signature="e#1692#2202#0" expanded="false" />
             <element signature="e#2273#2666#0" expanded="false" />
-            <element signature="e#3753#3781#0" expanded="false" />
-            <element signature="e#3979#4121#0" expanded="false" />
-            <element signature="e#4213#4529#0" expanded="false" />
-            <element signature="e#4586#4864#0" expanded="false" />
-            <element signature="e#4899#5007#0" expanded="false" />
+            <element signature="e#3745#3797#0" expanded="false" />
+            <element signature="e#4040#4068#0" expanded="false" />
+            <element signature="e#4266#4408#0" expanded="false" />
+            <element signature="e#4500#4816#0" expanded="false" />
+            <element signature="e#4873#5151#0" expanded="false" />
+            <element signature="e#5186#5294#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -863,18 +876,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hosthab.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="82" column="41" lean-forward="false" selection-start-line="82" selection-start-column="41" selection-end-line="82" selection-end-column="41" />
+        <state relative-caret-position="320">
+          <caret line="90" column="50" lean-forward="true" selection-start-line="90" selection-start-column="50" selection-end-line="90" selection-end-column="50" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
             <element signature="e#819#845#0" expanded="false" />
             <element signature="e#1692#2202#0" expanded="false" />
             <element signature="e#2273#2666#0" expanded="false" />
-            <element signature="e#3753#3781#0" expanded="false" />
-            <element signature="e#3979#4121#0" expanded="false" />
-            <element signature="e#4213#4529#0" expanded="false" />
-            <element signature="e#4586#4864#0" expanded="false" />
-            <element signature="e#4899#5007#0" expanded="false" />
+            <element signature="e#3745#3797#0" expanded="false" />
+            <element signature="e#4040#4068#0" expanded="false" />
+            <element signature="e#4266#4408#0" expanded="false" />
+            <element signature="e#4500#4816#0" expanded="false" />
+            <element signature="e#4873#5151#0" expanded="false" />
+            <element signature="e#5186#5294#0" expanded="false" />
           </folding>
         </state>
       </provider>

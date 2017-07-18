@@ -78,9 +78,13 @@ def connect(sock, addr):
 
 
             elif method == "Answer":
+                userbd.update_user(**param)
+                bot.send_message(param['idT'], "У вас на счету " + str(param['score']) + "₽")
+                ScoreVodomat = hostbd.get_vodomat(param['idv'])
+                ScoreVodomat = int(ScoreVodomat['score'])
                 try:
                     date['method']="GetStatus"
-                    j = json.dumps(dateLK)
+                    j = json.dumps(date)
 
                     tableSock[int(param['idv'])].send(j.encode("utf-8"))
                 except:
@@ -92,16 +96,19 @@ def connect(sock, addr):
                 data2 = data2.decode("utf-8")
                 date2 = json.loads(data2)
 
-                getscore = date2['method']['param']['sessionpaid']
+                HowManyWereSpent = int(date2['param']['totalPaid'])
+                all = ScoreVodomat + HowManyWereSpent - int(date2['param']['sessionpaid'])
+                hostbd.update_vodomatScore(param['idv'], all)
 
-                getBd = userbd.get_user(param['idT'])
-                print("getBd: %s" % getBd)
-                getscore = int(getBd['score']) - int(param['score'])
-                print("getscore: %s" % getscore)
+                # getscore = date2['method']['param']['sessionpaid']
 
-                hostbd.update_vodomatScore(param['idv'], getscore)
-                userbd.update_user(**param)
-                bot.send_message(param['idT'], "У вас на счету " + str(param['score']) + "₽")
+                # getBd = userbd.get_user(param['idT'])
+                # print("getBd: %s" % getBd)
+                # getscore = int(getBd['score']) - int(param['score'])
+                # print("getscore: %s" % getscore)
+
+
+
 
 
 
