@@ -3,7 +3,7 @@ import socket
 import json
 import telebot
 
-
+token = "321273335:AAGC0-DP7Rwxu99_sN3sSVdYDOcPgu3869g"
 
 bot = telebot.TeleBot(token=token)
 
@@ -29,12 +29,11 @@ def connect(sock, addr):
 
         if data is None:
             print("Disconnect. Not Data: ", addr)
-            break
+            return False
 
         date = json.loads(data)
 
         try:
-
             method = date.get("method")
             param = date.get("param")
 
@@ -78,21 +77,37 @@ def connect(sock, addr):
 
 
 
+            elif method == "Answer":
+                try:
+                    date['method']="GetStatus"
+                    j = json.dumps(dateLK)
 
-            elif method == "AnswerPay":
+                    tableSock[int(param['idv'])].send(j.encode("utf-8"))
+                except:
+                    bot.send_message(param['idT'],
+                                     "Приносим вам свои извинения,"
+                                     "но водомат временно в не рабочем состоянии!")
+
+                data2 = sock.recv(2048)
+                data2 = data2.decode("utf-8")
+                date2 = json.loads(data2)
+
+                getscore = date2['method']['param']['sessionpaid']
+
                 getBd = userbd.get_user(param['idT'])
                 print("getBd: %s" % getBd)
                 getscore = int(getBd['score']) - int(param['score'])
                 print("getscore: %s" % getscore)
+
                 hostbd.update_vodomatScore(param['idv'], getscore)
                 userbd.update_user(**param)
                 bot.send_message(param['idT'], "У вас на счету " + str(param['score']) + "₽")
 
 
 
-            elif method == "AnswerUP":
-                bot.send_message(param['idT'], "У вас на счету " + str(param['score']) + "₽")
-                userbd.update_user(**param)
+            # elif method == "AnswerUP":
+            #     bot.send_message(param['idT'], "У вас на счету " + str(param['score']) + "₽")
+            #     userbd.update_user(**param)
 
 
 
