@@ -21,16 +21,13 @@
       <file leaf-file-name="hosthab.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hosthab.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="111" column="0" lean-forward="true" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
+            <state relative-caret-position="284">
+              <caret line="91" column="48" lean-forward="false" selection-start-line="91" selection-start-column="48" selection-end-line="91" selection-end-column="48" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
-                <element signature="e#864#890#0" expanded="false" />
-                <element signature="e#4736#4788#0" expanded="false" />
-                <element signature="e#5031#5059#0" expanded="false" />
-                <element signature="e#5257#5399#0" expanded="false" />
-                <element signature="e#5491#5849#0" expanded="false" />
-                <element signature="e#5906#6224#0" expanded="false" />
+                <element signature="e#1122#1144#0" expanded="false" />
+                <element signature="e#1755#1777#0" expanded="false" />
+                <element signature="e#1939#1961#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -406,7 +403,14 @@
       <option name="project" value="LOCAL" />
       <updated>1500379371712</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="vodomat">
+      <created>1500455260988</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1500455260988</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -465,33 +469,28 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/hosthab.py</url>
-          <line>57</line>
+          <line>41</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/hosthab.py</url>
-          <line>173</line>
+          <line>132</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/hosthab.py</url>
-          <line>93</line>
+          <line>70</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/hosthab.py</url>
-          <line>154</line>
+          <line>116</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/hosthab.py</url>
-          <line>165</line>
+          <line>125</line>
           <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/hosthab.py</url>
-          <line>148</line>
-          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
       <option name="time" value="20" />
@@ -519,12 +518,9 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
-            <element signature="e#864#890#0" expanded="false" />
-            <element signature="e#4736#4788#0" expanded="false" />
-            <element signature="e#5031#5059#0" expanded="false" />
-            <element signature="e#5257#5399#0" expanded="false" />
-            <element signature="e#5491#5849#0" expanded="false" />
-            <element signature="e#5906#6224#0" expanded="false" />
+            <element signature="e#1122#1144#0" expanded="false" />
+            <element signature="e#1755#1777#0" expanded="false" />
+            <element signature="e#1939#1961#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -556,12 +552,9 @@
           <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
-            <element signature="e#864#890#0" expanded="false" />
-            <element signature="e#4736#4788#0" expanded="false" />
-            <element signature="e#5031#5059#0" expanded="false" />
-            <element signature="e#5257#5399#0" expanded="false" />
-            <element signature="e#5491#5849#0" expanded="false" />
-            <element signature="e#5906#6224#0" expanded="false" />
+            <element signature="e#1122#1144#0" expanded="false" />
+            <element signature="e#1755#1777#0" expanded="false" />
+            <element signature="e#1939#1961#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -586,12 +579,9 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
-            <element signature="e#864#890#0" expanded="false" />
-            <element signature="e#4736#4788#0" expanded="false" />
-            <element signature="e#5031#5059#0" expanded="false" />
-            <element signature="e#5257#5399#0" expanded="false" />
-            <element signature="e#5491#5849#0" expanded="false" />
-            <element signature="e#5906#6224#0" expanded="false" />
+            <element signature="e#1122#1144#0" expanded="false" />
+            <element signature="e#1755#1777#0" expanded="false" />
+            <element signature="e#1939#1961#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -616,12 +606,9 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
-            <element signature="e#864#890#0" expanded="false" />
-            <element signature="e#4736#4788#0" expanded="false" />
-            <element signature="e#5031#5059#0" expanded="false" />
-            <element signature="e#5257#5399#0" expanded="false" />
-            <element signature="e#5491#5849#0" expanded="false" />
-            <element signature="e#5906#6224#0" expanded="false" />
+            <element signature="e#1122#1144#0" expanded="false" />
+            <element signature="e#1755#1777#0" expanded="false" />
+            <element signature="e#1939#1961#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -646,12 +633,9 @@
           <caret line="24" column="6" lean-forward="false" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
-            <element signature="e#864#890#0" expanded="false" />
-            <element signature="e#4736#4788#0" expanded="false" />
-            <element signature="e#5031#5059#0" expanded="false" />
-            <element signature="e#5257#5399#0" expanded="false" />
-            <element signature="e#5491#5849#0" expanded="false" />
-            <element signature="e#5906#6224#0" expanded="false" />
+            <element signature="e#1122#1144#0" expanded="false" />
+            <element signature="e#1755#1777#0" expanded="false" />
+            <element signature="e#1939#1961#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -676,12 +660,9 @@
           <caret line="24" column="6" lean-forward="false" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
-            <element signature="e#864#890#0" expanded="false" />
-            <element signature="e#4736#4788#0" expanded="false" />
-            <element signature="e#5031#5059#0" expanded="false" />
-            <element signature="e#5257#5399#0" expanded="false" />
-            <element signature="e#5491#5849#0" expanded="false" />
-            <element signature="e#5906#6224#0" expanded="false" />
+            <element signature="e#1122#1144#0" expanded="false" />
+            <element signature="e#1755#1777#0" expanded="false" />
+            <element signature="e#1939#1961#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -706,12 +687,9 @@
           <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
-            <element signature="e#864#890#0" expanded="false" />
-            <element signature="e#4736#4788#0" expanded="false" />
-            <element signature="e#5031#5059#0" expanded="false" />
-            <element signature="e#5257#5399#0" expanded="false" />
-            <element signature="e#5491#5849#0" expanded="false" />
-            <element signature="e#5906#6224#0" expanded="false" />
+            <element signature="e#1122#1144#0" expanded="false" />
+            <element signature="e#1755#1777#0" expanded="false" />
+            <element signature="e#1939#1961#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -854,16 +832,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hosthab.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="111" column="0" lean-forward="true" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
+        <state relative-caret-position="284">
+          <caret line="91" column="48" lean-forward="false" selection-start-line="91" selection-start-column="48" selection-end-line="91" selection-end-column="48" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
-            <element signature="e#864#890#0" expanded="false" />
-            <element signature="e#4736#4788#0" expanded="false" />
-            <element signature="e#5031#5059#0" expanded="false" />
-            <element signature="e#5257#5399#0" expanded="false" />
-            <element signature="e#5491#5849#0" expanded="false" />
-            <element signature="e#5906#6224#0" expanded="false" />
+            <element signature="e#1122#1144#0" expanded="false" />
+            <element signature="e#1755#1777#0" expanded="false" />
+            <element signature="e#1939#1961#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -87,31 +87,31 @@ def connect(sock, addr):
 
                 ScoreVodomat = hostbd.get_vodomat(param['idv'])
                 ScoreVodomat = int(ScoreVodomat['score'])
-
-                try:
-                    date['method']="GetStatus"
-                    idv = param['idv']
-                    # j = json.dumps(date)
-                    # tableSock[int(param['idv'])].send(j.encode("utf-8"))
-                    send(sock, date, idv)
-
-                except:
-                    bot.send_message(param['idT'],
-                                     "Приносим вам свои извинения,"
-                                     "но водомат временно в не рабочем состоянии!")
-
-                data2 = sock.recv(2048)
-                data2 = data2.decode("utf-8")
-                date2 = json.loads(data2)
-                print("date2:")
-                print(date2)
-
-                # HowManyWereSpent = int(date2['param']['totalPaid'])
-                FindAllScore = HowManyWere + int(date2['param']['sessionpaid']) - int(date2['param']['leftfromPaid'])
-                all = ScoreVodomat + FindAllScore
-                print("all:")
-                print(all)
-                hostbd.update_vodomatScore(param['idv'], all)
+                #
+                # try:
+                #     date['method']="GetStatus"
+                #     idv = param['idv']
+                #     # j = json.dumps(date)
+                #     # tableSock[int(param['idv'])].send(j.encode("utf-8"))
+                #     send(sock, date, idv)
+                #
+                # except:
+                #     bot.send_message(param['idT'],
+                #                      "Приносим вам свои извинения,"
+                #                      "но водомат временно в не рабочем состоянии!")
+                #
+                # data2 = sock.recv(2048)
+                # data2 = data2.decode("utf-8")
+                # date2 = json.loads(data2)
+                # print("date2:")
+                # print(date2)
+                #
+                # # HowManyWereSpent = int(date2['param']['totalPaid'])
+                # FindAllScore = HowManyWere + int(date2['param']['sessionpaid']) - int(date2['param']['leftfromPaid'])
+                # all = ScoreVodomat + FindAllScore
+                # print("all:")
+                # print(all)
+                # hostbd.update_vodomatScore(param['idv'], all)
 
 
 
