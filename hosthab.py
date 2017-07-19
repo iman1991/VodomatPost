@@ -14,18 +14,20 @@ from Archive import userbd
 
 tableSock = {}
 
-def send(sock, data):
+def send(sock, data, idv):
     if type(data) == str:
         data = data.encode("utf-8")
     elif type(data) == dict:
         data = json.dumps(data).encode("utf-8")
-    sock.send(data)
+
+    tableSock[int(idv)].send(data)
+    # sock.send(data)
 
 def connect(sock, addr):
     while True:
         data = sock.recv(2048)
         data = data.decode("utf-8")
-        print("data '%s' " % data)
+        # print("data '%s' " % data)
 
         if data is None:
             print("Disconnect. Not Data: ", addr)
@@ -54,11 +56,16 @@ def connect(sock, addr):
             #                          "Вы ввели неправильный ID водомата!")
 
             if method == "Activate":
+                print("Activate:")
+                print(date)
+
                 hostWI = hostbd.get_vodomat(int(param['idv']))
                 if hostWI['State'] == 'WAIT':
                         try:
-                            j = json.dumps(date)
-                            tableSock[int(param['idv'])].send(j.encode("utf-8"))
+                            idv = param['idv']
+                            # j = json.dumps(date)
+                            # tableSock[int(param['idv'])].send(j.encode("utf-8"))
+                            send(sock, date, idv)
                         except:
                             bot.send_message(param['idT'],
                                              "Приносим вам свои извинения,"
@@ -66,10 +73,17 @@ def connect(sock, addr):
 
 
 
-            elif method == "GetWaterStop":
+            elif method == "Stop":
+                        print("Stop:")
+                        print(date)
+
                         try:
-                            j = json.dumps(date)
-                            tableSock[int(param['idv'])].send(j.encode("utf-8"))
+                            idv = param['idv']
+                            # j = json.dumps(date)
+                            # tableSock[int(param['idv'])].send(j.encode("utf-8"))
+                            send(sock, date, idv)
+                            # j = json.dumps(date)
+                            # tableSock[int(param['idv'])].send(j.encode("utf-8"))
                         except:
                             bot.send_message(param['idT'],
                                              "Приносим вам свои извинения,"
@@ -78,15 +92,24 @@ def connect(sock, addr):
 
 
             elif method == "Answer":
+                print("Answer:")
+                print(date)
+                HowManyWere = userbd.get_user(param['idT'])
+                HowManyWere = int(HowManyWere['score'])
+                
                 userbd.update_user(**param)
                 bot.send_message(param['idT'], "У вас на счету " + str(param['score']) + "₽")
+
                 ScoreVodomat = hostbd.get_vodomat(param['idv'])
                 ScoreVodomat = int(ScoreVodomat['score'])
+
                 try:
                     date['method']="GetStatus"
-                    j = json.dumps(date)
+                    idv = param['idv']
+                    # j = json.dumps(date)
+                    # tableSock[int(param['idv'])].send(j.encode("utf-8"))
+                    send(sock, date, idv)
 
-                    tableSock[int(param['idv'])].send(j.encode("utf-8"))
                 except:
                     bot.send_message(param['idT'],
                                      "Приносим вам свои извинения,"
@@ -95,9 +118,14 @@ def connect(sock, addr):
                 data2 = sock.recv(2048)
                 data2 = data2.decode("utf-8")
                 date2 = json.loads(data2)
+                print("date2:")
+                print(date2)
 
-                HowManyWereSpent = int(date2['param']['totalPaid'])
-                all = ScoreVodomat + HowManyWereSpent - int(date2['param']['sessionpaid'])
+                # HowManyWereSpent = int(date2['param']['totalPaid'])
+                FindAllScore = HowManyWere + int(date2['param']['sessionpaid']) - int(date2['param']['leftfromPaid'])
+                all = ScoreVodomat + FindAllScore
+                print("all:")
+                print(all)
                 hostbd.update_vodomatScore(param['idv'], all)
 
                 # getscore = date2['method']['param']['sessionpaid']
@@ -126,24 +154,27 @@ def connect(sock, addr):
 
             elif method == "status":  # for get information about hosts
                 prev = hostbd.get_vodomat(param['idv'])
+                idv = param['idv']
                 ypar = {'method': 'got', 'param': 'saved'}
-                send(sock, ypar)
+                send(sock, ypar, idv)
                 if date != prev:
                     hostbd.update_vodomat(**param)
                     workbyfile.write_on_file(date)
-                    print("Savedate = %s" % date)
+                    # print("Savedate = %s" % date)
 
 
             elif method == "connect":
                 hostbd.add_host(param['idv'])
+                idv = param['idv']
                 hostbd.update_vodomat(**param)
                 tableSock.update({date['param']['idv']: sock})
                 workbyfile.write_on_file(date)
                 ypar = {'method': 'got', 'param': 'saved'}
-                send(sock, ypar)
+                send(sock, ypar, idv)
             else:
                 ypar = {"method": "error", "param": {"type": "not method", "args": method}}
-                send(sock, ypar)
+                idv = param['idv']
+                send(sock, ypar, idv)
 
 
 
