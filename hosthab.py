@@ -14,20 +14,23 @@ from Archive import userbd
 
 tableSock = {}
 
-def send(sock, data, idv):
+def send(data, idv):
     if type(data) == str:
         data = data.encode("utf-8")
     elif type(data) == dict:
         data = json.dumps(data).encode("utf-8")
+    while True:
+        if tableSock[int(idv)]["locked"]:
+            break
+    tableSock[int(idv)]["locked"] = True
+    tableSock[int(idv)]["socked"].send(data)
+    tableSock[int(idv)]["locked"] = False
 
-    tableSock[int(idv)].send(data)
-    # sock.send(data)
 
 def connect(sock, addr):
     while True:
         data = sock.recv(2048)
         data = data.decode("utf-8")
-        # print("data '%s' " % data)
 
         if data is None:
             print("Disconnect. Not Data: ", addr)
@@ -48,9 +51,7 @@ def connect(sock, addr):
                 if hostWI['State'] == 'WAIT':
                         try:
                             idv = param['idv']
-                            # j = json.dumps(date)
-                            # tableSock[int(param['idv'])].send(j.encode("utf-8"))
-                            send(sock, date, idv)
+                            send(date, idv)
                         except:
                             bot.send_message(param['idT'],
                                              "Приносим вам свои извинения,"
@@ -64,11 +65,9 @@ def connect(sock, addr):
 
                         try:
                             idv = param['idv']
-                            # j = json.dumps(date)
-                            # tableSock[int(param['idv'])].send(j.encode("utf-8"))
-                            send(sock, date, idv)
-                            # j = json.dumps(date)
-                            # tableSock[int(param['idv'])].send(j.encode("utf-8"))
+
+                            send(date, idv)
+
                         except:
                             bot.send_message(param['idT'],
                                              "Приносим вам свои извинения,"
@@ -87,39 +86,14 @@ def connect(sock, addr):
 
                 ScoreVodomat = hostbd.get_vodomat(param['idv'])
                 ScoreVodomat = int(ScoreVodomat['score'])
-                #
-                # try:
-                #     date['method']="GetStatus"
-                #     idv = param['idv']
-                #     # j = json.dumps(date)
-                #     # tableSock[int(param['idv'])].send(j.encode("utf-8"))
-                #     send(sock, date, idv)
-                #
-                # except:
-                #     bot.send_message(param['idT'],
-                #                      "Приносим вам свои извинения,"
-                #                      "но водомат временно в не рабочем состоянии!")
-                #
-                # data2 = sock.recv(2048)
-                # data2 = data2.decode("utf-8")
-                # date2 = json.loads(data2)
-                # print("date2:")
-                # print(date2)
-                #
-                # # HowManyWereSpent = int(date2['param']['totalPaid'])
-                # FindAllScore = HowManyWere + int(date2['param']['sessionpaid']) - int(date2['param']['leftfromPaid'])
-                # all = ScoreVodomat + FindAllScore
-                # print("all:")
-                # print(all)
-                # hostbd.update_vodomatScore(param['idv'], all)
 
 
 
 
 
             elif method == "error":
-                bot.send_message(param['idT'],
-                                 "В ходе работы произошла ошибка, пожалуйста попробуйте еще разок, ладненько?")
+                bot.send_message(param['idT'], "В ходе работы произошла ошибка, "
+                                               "пожалуйста попробуйте еще разок, ладненько?")
 
 
 
@@ -127,7 +101,7 @@ def connect(sock, addr):
                 prev = hostbd.get_vodomat(param['idv'])
                 idv = param['idv']
                 ypar = {'method': 'got', 'param': 'saved'}
-                send(sock, ypar, idv)
+                send(ypar, idv)
                 if date != prev:
                     hostbd.update_vodomat(**param)
                     workbyfile.write_on_file(date)
@@ -138,14 +112,14 @@ def connect(sock, addr):
                 hostbd.add_host(param['idv'])
                 idv = param['idv']
                 hostbd.update_vodomat(**param)
-                tableSock.update({date['param']['idv']: sock})
+                tableSock.update({date['param']['idv']: {"socket": sock, "locked": False}})
                 workbyfile.write_on_file(date)
                 ypar = {'method': 'got', 'param': 'saved'}
-                send(sock, ypar, idv)
+                send(ypar, idv)
             else:
                 ypar = {"method": "error", "param": {"type": "not method", "args": method}}
                 idv = param['idv']
-                send(sock, ypar, idv)
+                send(ypar, idv)
 
 
 
